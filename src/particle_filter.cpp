@@ -40,8 +40,8 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
   normal_distribution<double> N_y_init(0, std[1]);
   normal_distribution<double> N_theta_init(0,std[2]);
   
-  weights = vector<double>(num_particles);
-  particles = vector<Particle>(num_particles);
+  //weights = vector<double>(num_particles);
+  //particles = vector<Particle>(num_particles);
     
   for(int i = 0; i < num_particles; i ++)
   {
@@ -54,6 +54,7 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
     p.weight = 1.0;
       
     particles.push_back(p);
+    weights.push_back(p.weight);
   }
     
   is_initialized = true;
